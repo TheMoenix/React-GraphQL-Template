@@ -17,6 +17,13 @@ export function AppRoute() {
       component: <Home />,
       icon: <FontAwesomeIcon icon={faList} />,
     },
+    {
+      title: "Home",
+      path: "/test",
+      showOnMenu: true,
+      component: <Home />,
+      icon: <FontAwesomeIcon icon={faList} />,
+    },
   ];
   return (
     <Layout>
