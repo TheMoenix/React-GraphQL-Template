@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
 import { useAppContext } from "../context/app/context";
+import { setSession } from "../context/app/action";
+import axios from "axios";
+import { getUserSession } from "../lib/rpc";
 
 export function useAuthenticate() {
   const appContext = useAppContext();
@@ -8,16 +11,18 @@ export function useAuthenticate() {
   useEffect(() => {
     (async () => {
       try {
-        const authInfo: any = {};
-        // if (!authInfo?.uid) {
-        //   window.location.href = `/web/login?redirect=/support/`;
-        //   return;
-        // }
+        const authInfo: any = await getUserSession();
+        console.log(authInfo);
+
+        if (!authInfo?._id && !window.location.href.includes("login")) {
+          // window.location.replace("login");
+          return;
+        }
         if (!authInfo) {
           setLoading(false);
           return;
         } else {
-          // appContext.dispatch(setOdooSession(authInfo));
+          appContext.dispatch(setSession(authInfo._id));
         }
 
         setLoading(false);

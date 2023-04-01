@@ -5,6 +5,7 @@ import { faList } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Home } from "./pages/Home";
 import { IRoute } from "./common/types";
+import { LoginPage } from "./pages/LoginPage";
 
 const { Content } = Layout;
 export function AppRoute() {
@@ -15,6 +16,13 @@ export function AppRoute() {
       showOnMenu: true,
       index: true,
       component: <Home />,
+      icon: <FontAwesomeIcon icon={faList} />,
+    },
+    {
+      title: "Login",
+      path: "/login",
+      showOnMenu: true,
+      component: <LoginPage />,
       icon: <FontAwesomeIcon icon={faList} />,
     },
   ];
