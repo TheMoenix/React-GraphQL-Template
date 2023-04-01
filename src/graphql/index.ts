@@ -63,7 +63,7 @@ export function createApolloClient(sessionInfo) {
     },
     createWSLink(tempSession),
     createGraphQLHttpLink(tempSession)
-    // createGraphQLUploadLink(sessionId)
+    // createGraphQLUploadLink(tempSession)
   );
 
   return new ApolloClient({

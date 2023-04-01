@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AppActions, setSession } from "../context/app/action";
+
 import { useAppContext } from "../context/app/context";
 
 export function useAuthenticate() {
@@ -8,13 +8,18 @@ export function useAuthenticate() {
   useEffect(() => {
     (async () => {
       try {
-        const authInfo: any = await localStorage.getItem("session_info");
-        if (authInfo) {
+        const authInfo: any = {};
+        // if (!authInfo?.uid) {
+        //   window.location.href = `/web/login?redirect=/support/`;
+        //   return;
+        // }
+        if (!authInfo) {
           setLoading(false);
           return;
         } else {
-          appContext.dispatch(setSession(authInfo));
+          // appContext.dispatch(setOdooSession(authInfo));
         }
+
         setLoading(false);
       } catch (e) {
         setLoading(false);
