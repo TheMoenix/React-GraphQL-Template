@@ -23,7 +23,7 @@ const wsEndpoint =
 // export const endpoint = `http://${process.env.REACT_APP_GRAPHQL_URL}`;
 // const wsEndpoint = `wss://${process.env.REACT_APP_GRAPHQL_URL}`;
 
-function createWSLink() {
+function createWSLink(sessionId: string) {
   return new WebSocketLink({
     uri: `${wsEndpoint}/graphql`,
     options: {
@@ -31,25 +31,21 @@ function createWSLink() {
       connectionParams: async () => {
         return {
           headers: {
-            "x-session":
-              process.env.REACT_APP_SESSION_ID ||
-              `${sessionStorage.getItem("x-session")};`,
+            "x-session": sessionId,
           },
         };
       },
     },
   });
 }
-function createGraphQLHttpLink(sessionInfo?) {
-  if (!sessionInfo) {
-    sessionInfo = localStorage.getItem("session") || "";
+function createGraphQLHttpLink(sessionId: string) {
+  if (!sessionId) {
+    sessionId = localStorage.getItem("session") || "";
   }
   return createHttpLink({
     uri: `${endpoint}/graphql`,
     headers: {
-      "x-session":
-        process.env.REACT_APP_SESSION_ID ||
-        `${sessionStorage.getItem("x-session")};`,
+      "x-session": sessionId,
     },
   });
 }
@@ -65,7 +61,7 @@ export function createApolloClient(sessionInfo) {
         definition.operation === "subscription"
       );
     },
-    createWSLink(),
+    createWSLink(tempSession),
     createGraphQLHttpLink(tempSession)
     // createGraphQLUploadLink(sessionId)
   );

@@ -18,7 +18,12 @@ export function App() {
     );
   }
   return (
-    <ApolloProvider client={createApolloClient(appContext.state.sessionInfo)}>
+    <ApolloProvider
+      client={createApolloClient(
+        appContext.state.sessionInfo ||
+          (process.env.REACT_APP_SESSION_ID as string)
+      )}
+    >
       <AppRoute />
     </ApolloProvider>
   );
