@@ -11,7 +11,7 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <MoenixProvider>
-    <BrowserRouter basename="support">
+    <BrowserRouter basename="react">
       <App />
     </BrowserRouter>
   </MoenixProvider>,

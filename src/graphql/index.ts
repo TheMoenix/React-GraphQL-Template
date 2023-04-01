@@ -8,8 +8,20 @@ import {
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { getMainDefinition } from "@apollo/client/utilities";
 
-export const endpoint = `http://${process.env.REACT_APP_GRAPHQL_URL}`;
-const wsEndpoint = `wss://${process.env.REACT_APP_GRAPHQL_URL}`;
+const DOMAIN = window.location.host;
+const GRAPHQL_SERVICE =
+  process.env.REACT_APP_GRAPHQL_SERVICE || "support_graphql";
+export const endpoint =
+  process.env.REACT_APP_GRAPHQL_ENDPOINT ||
+  `${
+    DOMAIN.includes("localhost") ? "http" : "https"
+  }://${DOMAIN}/${GRAPHQL_SERVICE}`;
+const wsEndpoint =
+  process.env.REACT_APP_GRAPHQL_WS_ENDPOINT ||
+  `wss://${DOMAIN}/${GRAPHQL_SERVICE}`;
+
+// export const endpoint = `http://${process.env.REACT_APP_GRAPHQL_URL}`;
+// const wsEndpoint = `wss://${process.env.REACT_APP_GRAPHQL_URL}`;
 
 function createWSLink() {
   return new WebSocketLink({
@@ -19,7 +31,9 @@ function createWSLink() {
       connectionParams: async () => {
         return {
           headers: {
-            "x-session": `${sessionStorage.getItem("x-session")};`,
+            "x-session":
+              process.env.REACT_APP_SESSION_ID ||
+              `${sessionStorage.getItem("x-session")};`,
           },
         };
       },
@@ -33,7 +47,9 @@ function createGraphQLHttpLink(sessionInfo?) {
   return createHttpLink({
     uri: `${endpoint}/graphql`,
     headers: {
-      "x-session": `${sessionStorage.getItem("x-session")};`,
+      "x-session":
+        process.env.REACT_APP_SESSION_ID ||
+        `${sessionStorage.getItem("x-session")};`,
     },
   });
 }

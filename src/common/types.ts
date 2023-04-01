@@ -9,8 +9,6 @@ export type ProviderProps = {
 export interface IContext {
   lang?: string;
   tz?: string;
-  allowed_company_ids?: number[];
-  user_id?: number;
 }
 
 export interface ISessionInfo {

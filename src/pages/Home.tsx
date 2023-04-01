@@ -1,4 +1,4 @@
-import { Alert, Card, Layout, Spin, Table, Tag, Tooltip } from "antd";
+import { Alert, Button } from "antd";
 import { Typography } from "antd";
 import React from "react";
 import { useGetQuery } from "../graphql/generated/hooks";
@@ -13,6 +13,7 @@ export const Home: React.FC<Props> = (props: Props) => {
 
   return (
     <>
+      <Button>test</Button>
       {!error && !loading && data && <Title level={1}>{data.get}</Title>}
       {!loading && error && (
         <Alert
