@@ -14,10 +14,15 @@ export const LoginPage: React.FC<Props> = (props: Props) => {
     <>
       <Button
         onClick={async () => {
-          await axios.post(`${endpoint}/login`, {
-            email: "3@test.com",
-            password: "test",
-          });
+          const data = (
+            await axios.post(`${endpoint}/login`, {
+              email: "3@test.com",
+              password: "test",
+            })
+          ).data;
+          console.log(data);
+          if (data._id) localStorage.setItem("x-session", data._id);
+          console.log(`session : ${data._id}`);
         }}
       >
         login

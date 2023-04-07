@@ -6,10 +6,10 @@ export enum AppActions {
 
 export interface ISetSession {
   type: AppActions.SET_SESSION;
-  session: string;
+  session: ISessionInfo;
 }
 
-export function setSession(session: string) {
+export function setSession(session: ISessionInfo) {
   return {
     type: AppActions.SET_SESSION,
     session,

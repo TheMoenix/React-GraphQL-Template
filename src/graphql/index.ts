@@ -9,8 +9,7 @@ import { WebSocketLink } from "@apollo/client/link/ws";
 import { getMainDefinition } from "@apollo/client/utilities";
 
 const DOMAIN = window.location.host;
-const GRAPHQL_SERVICE =
-  process.env.REACT_APP_GRAPHQL_SERVICE || "support_graphql";
+const GRAPHQL_SERVICE = process.env.REACT_APP_GRAPHQL_SERVICE || "api";
 export const endpoint =
   process.env.REACT_APP_GRAPHQL_ENDPOINT ||
   `${
@@ -32,6 +31,7 @@ function createWSLink(sessionId: string) {
         return {
           headers: {
             "x-session": sessionId,
+            // isActivity: true,
           },
         };
       },
@@ -46,6 +46,7 @@ function createGraphQLHttpLink(sessionId: string) {
     uri: `${endpoint}/graphql`,
     headers: {
       "x-session": sessionId,
+      // isActivity: true,
     },
   });
 }

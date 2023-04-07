@@ -11,11 +11,18 @@ export interface IContext {
   tz?: string;
 }
 
-export interface ISessionInfo {
-  uid: number;
-  user_context: IContext;
-  name: string;
+export interface User {
   username: string;
+  name: string;
+  email: string;
+  roll: string;
+}
+
+export interface ISessionInfo {
+  _id: number;
+  lastActivityAt: Date;
+  status: string;
+  User: string;
 }
 
 export interface IRoute {

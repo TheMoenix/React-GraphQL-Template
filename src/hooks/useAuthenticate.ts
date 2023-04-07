@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { useAppContext } from "../context/app/context";
 import { setSession } from "../context/app/action";
-import axios from "axios";
 import { getUserSession } from "../lib/rpc";
 
 export function useAuthenticate() {
@@ -11,21 +10,28 @@ export function useAuthenticate() {
   useEffect(() => {
     (async () => {
       try {
-        const authInfo: any = await getUserSession();
-        console.log(authInfo);
-
-        if (!authInfo?._id && !window.location.href.includes("login")) {
-          // window.location.replace("login");
-          return;
-        }
-        if (!authInfo) {
-          setLoading(false);
+        const localSession = localStorage.getItem("x-session");
+        if (!localSession) {
+          if (!window.location.href.includes("login")) {
+            window.location.replace("login");
+          } else {
+            setLoading(false);
+          }
           return;
         } else {
-          appContext.dispatch(setSession(authInfo._id));
-        }
+          const authInfo: any = await getUserSession(localSession);
+          if (!authInfo || !authInfo?._id || authInfo.status === "expired") {
+            localStorage.removeItem("x-session");
+            window.location.replace("login");
+            setLoading(false);
+            return;
+          } else {
+            localStorage.setItem("x-session", authInfo._id);
+            appContext.dispatch(setSession(authInfo));
+          }
 
-        setLoading(false);
+          setLoading(false);
+        }
       } catch (e) {
         setLoading(false);
         console.log(e);

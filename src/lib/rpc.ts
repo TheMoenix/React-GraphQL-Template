@@ -1,16 +1,19 @@
 import Axios, { AxiosRequestConfig } from "axios";
 import { message } from "antd";
+import { useAppContext } from "../context/app/context";
 
-export const getUserSession = async () => {
+export const getUserSession = async (id) => {
   let url = window.location.origin;
   if (!url || !url.startsWith("http")) {
     throw new Error("Malformed Odoo URL");
   }
-  console.log(url);
 
   const options: AxiosRequestConfig = {
-    url: `${url}/session`,
+    url: `${url}/api/session`,
     method: "GET",
+    headers: {
+      "x-session": id || (process.env.REACT_APP_SESSION_ID as string),
+    },
     data: {
       jsonrpc: "2.0",
     },

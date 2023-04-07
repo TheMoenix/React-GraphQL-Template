@@ -3,7 +3,7 @@ import { AppAction, AppActions } from "./action";
 import { ISessionInfo } from "../../common/types";
 
 export interface IAppState {
-  sessionInfo: string | undefined;
+  sessionInfo: ISessionInfo | undefined;
 }
 
 export const initialAppState: IAppState = {
