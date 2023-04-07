@@ -11,7 +11,7 @@ export interface IContext {
   tz?: string;
 }
 
-export interface User {
+export interface IUser {
   username: string;
   name: string;
   email: string;
@@ -22,7 +22,7 @@ export interface ISessionInfo {
   _id: number;
   lastActivityAt: Date;
   status: string;
-  User: string;
+  user: IUser;
 }
 
 export interface IRoute {

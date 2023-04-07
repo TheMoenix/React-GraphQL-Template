@@ -1,75 +1,73 @@
-
 :root {
-    /** primary **/
-    --juleb-color-primary: #f18021;
-    --juleb-color-primary-rgb: 241, 128, 22;
-    --juleb-color-primary-contrast: #ffffff;
-    --juleb-color-primary-contrast-rgb: 255, 255, 255;
-    --juleb-color-primary-shade: #f18021;
-    --juleb-color-primary-tint: #df8236;
-  
-    /** secondary **/
-    --juleb-color-secondary: #3dc2ff;
-    --juleb-color-secondary-rgb: 61, 194, 255;
-    --juleb-color-secondary-contrast: #ffffff;
-    --juleb-color-secondary-contrast-rgb: 255, 255, 255;
-    --juleb-color-secondary-shade: #36abe0;
-    --juleb-color-secondary-tint: #50c8ff;
-  
-    /** tertiary **/
-    --juleb-color-tertiary: #5260ff;
-    --juleb-color-tertiary-rgb: 82, 96, 255;
-    --juleb-color-tertiary-contrast: #ffffff;
-    --juleb-color-tertiary-contrast-rgb: 255, 255, 255;
-    --juleb-color-tertiary-shade: #4854e0;
-    --juleb-color-tertiary-tint: #6370ff;
-  
-    /** success **/
-    --juleb-color-success: #2dd36f;
-    --juleb-color-success-rgb: 45, 211, 111;
-    --juleb-color-success-contrast: #ffffff;
-    --juleb-color-success-contrast-rgb: 255, 255, 255;
-    --juleb-color-success-shade: #28ba62;
-    --juleb-color-success-tint: #42d77d;
-  
-    /** warning **/
-    --juleb-color-warning: #ffc409;
-    --juleb-color-warning-rgb: 255, 196, 9;
-    --juleb-color-warning-contrast: #000000;
-    --juleb-color-warning-contrast-rgb: 0, 0, 0;
-    --juleb-color-warning-shade: #e0ac08;
-    --juleb-color-warning-tint: #ffca22;
-  
-    /** danger **/
-    --juleb-color-danger: #eb445a;
-    --juleb-color-danger-rgb: 235, 68, 90;
-    --juleb-color-danger-contrast: #ffffff;
-    --juleb-color-danger-contrast-rgb: 255, 255, 255;
-    --juleb-color-danger-shade: #cf3c4f;
-    --juleb-color-danger-tint: #ed576b;
-  
-    /** dark **/
-    --juleb-color-dark: #222428;
-    --juleb-color-dark-rgb: 34, 36, 40;
-    --juleb-color-dark-contrast: #ffffff;
-    --juleb-color-dark-contrast-rgb: 255, 255, 255;
-    --juleb-color-dark-shade: #1e2023;
-    --juleb-color-dark-tint: #383a3e;
-  
-    /** medium **/
-    --juleb-color-medium: #92949c;
-    --juleb-color-medium-rgb: 146, 148, 156;
-    --juleb-color-medium-contrast: #ffffff;
-    --juleb-color-medium-contrast-rgb: 255, 255, 255;
-    --juleb-color-medium-shade: #808289;
-    --juleb-color-medium-tint: #9d9fa6;
-  
-    /** light **/
-    --juleb-color-light: #f4f5f8;
-    --juleb-color-light-rgb: 244, 245, 248;
-    --juleb-color-light-contrast: #000000;
-    --juleb-color-light-contrast-rgb: 0, 0, 0;
-    --juleb-color-light-shade: #d7d8da;
-    --juleb-color-light-tint: #f5f6f9;
-  }
-  
+  /** primary **/
+  --juleb-color-primary: #f18021;
+  --juleb-color-primary-rgb: 241, 128, 22;
+  --juleb-color-primary-contrast: #ffffff;
+  --juleb-color-primary-contrast-rgb: 255, 255, 255;
+  --juleb-color-primary-shade: #f18021;
+  --juleb-color-primary-tint: #df8236;
+
+  /** secondary **/
+  --juleb-color-secondary: #3dc2ff;
+  --juleb-color-secondary-rgb: 61, 194, 255;
+  --juleb-color-secondary-contrast: #ffffff;
+  --juleb-color-secondary-contrast-rgb: 255, 255, 255;
+  --juleb-color-secondary-shade: #36abe0;
+  --juleb-color-secondary-tint: #50c8ff;
+
+  /** tertiary **/
+  --juleb-color-tertiary: #5260ff;
+  --juleb-color-tertiary-rgb: 82, 96, 255;
+  --juleb-color-tertiary-contrast: #ffffff;
+  --juleb-color-tertiary-contrast-rgb: 255, 255, 255;
+  --juleb-color-tertiary-shade: #4854e0;
+  --juleb-color-tertiary-tint: #6370ff;
+
+  /** success **/
+  --juleb-color-success: #2dd36f;
+  --juleb-color-success-rgb: 45, 211, 111;
+  --juleb-color-success-contrast: #ffffff;
+  --juleb-color-success-contrast-rgb: 255, 255, 255;
+  --juleb-color-success-shade: #28ba62;
+  --juleb-color-success-tint: #42d77d;
+
+  /** warning **/
+  --juleb-color-warning: #ffc409;
+  --juleb-color-warning-rgb: 255, 196, 9;
+  --juleb-color-warning-contrast: #000000;
+  --juleb-color-warning-contrast-rgb: 0, 0, 0;
+  --juleb-color-warning-shade: #e0ac08;
+  --juleb-color-warning-tint: #ffca22;
+
+  /** danger **/
+  --juleb-color-danger: #eb445a;
+  --juleb-color-danger-rgb: 235, 68, 90;
+  --juleb-color-danger-contrast: #ffffff;
+  --juleb-color-danger-contrast-rgb: 255, 255, 255;
+  --juleb-color-danger-shade: #cf3c4f;
+  --juleb-color-danger-tint: #ed576b;
+
+  /** dark **/
+  --juleb-color-dark: #222428;
+  --juleb-color-dark-rgb: 34, 36, 40;
+  --juleb-color-dark-contrast: #ffffff;
+  --juleb-color-dark-contrast-rgb: 255, 255, 255;
+  --juleb-color-dark-shade: #1e2023;
+  --juleb-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --juleb-color-medium: #92949c;
+  --juleb-color-medium-rgb: 146, 148, 156;
+  --juleb-color-medium-contrast: #ffffff;
+  --juleb-color-medium-contrast-rgb: 255, 255, 255;
+  --juleb-color-medium-shade: #808289;
+  --juleb-color-medium-tint: #9d9fa6;
+
+  /** light **/
+  --juleb-color-light: #f4f5f8;
+  --juleb-color-light-rgb: 244, 245, 248;
+  --juleb-color-light-contrast: #000000;
+  --juleb-color-light-contrast-rgb: 0, 0, 0;
+  --juleb-color-light-shade: #d7d8da;
+  --juleb-color-light-tint: #f5f6f9;
+}

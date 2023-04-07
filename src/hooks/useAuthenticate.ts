@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useAppContext } from "../context/app/context";
 import { setSession } from "../context/app/action";
 import { getUserSession } from "../lib/rpc";
+import { ISessionInfo } from "../common/types";
 
 export function useAuthenticate() {
   const appContext = useAppContext();
@@ -27,6 +28,17 @@ export function useAuthenticate() {
             return;
           } else {
             localStorage.setItem("x-session", authInfo._id);
+            // const state: ISessionInfo = {
+            //   _id: authInfo._id,
+            //   lastActivityAt: authInfo.lastActivityAt,
+            //   status: authInfo.status,
+            //   user: {
+            //     username: authInfo.user.username,
+            //     name: authInfo.user.name,
+            //     email: authInfo.user.email,
+            //     roll: authInfo.user.roll,
+            //   },
+            // };
             appContext.dispatch(setSession(authInfo));
           }
 
