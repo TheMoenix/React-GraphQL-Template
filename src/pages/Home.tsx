@@ -1,7 +1,6 @@
 import { Alert, Button } from "antd";
 import { Typography } from "antd";
 import React from "react";
-import { useGetQuery } from "../graphql/generated/hooks";
 import { useAppContext } from "../context/app/context";
 
 const { Title } = Typography;

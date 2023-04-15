@@ -21,15 +21,15 @@ export function useAuthenticate() {
           return;
         } else {
           const authInfo: any = await getUserSession(localSession);
-          if (!authInfo || !authInfo?._id || authInfo.status === "expired") {
+          if (!authInfo || !authInfo?.token || authInfo.status === "expired") {
             localStorage.removeItem("x-session");
             window.location.replace("login");
             setLoading(false);
             return;
           } else {
-            localStorage.setItem("x-session", authInfo._id);
+            localStorage.setItem("x-session", authInfo.token);
             // const state: ISessionInfo = {
-            //   _id: authInfo._id,
+            //   token: authInfo.token,
             //   lastActivityAt: authInfo.lastActivityAt,
             //   status: authInfo.status,
             //   user: {

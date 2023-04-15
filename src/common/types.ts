@@ -19,7 +19,8 @@ export interface IUser {
 }
 
 export interface ISessionInfo {
-  _id: number;
+  id: number;
+  token: string;
   lastActivityAt: Date;
   status: string;
   user: IUser;

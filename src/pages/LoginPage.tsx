@@ -24,6 +24,8 @@ export const LoginPage: React.FC<Props> = (props: Props) => {
 
   useEffect(() => {
     const session = localStorage.getItem("x-session");
+    console.log(session);
+
     if (session) {
       setLogedin(true);
     } else {
@@ -44,8 +46,8 @@ export const LoginPage: React.FC<Props> = (props: Props) => {
           ...values,
         })
       ).data;
-      if (data._id) {
-        await localStorage.setItem("x-session", data._id);
+      if (data.token) {
+        await localStorage.setItem("x-session", data.token);
       }
       setLogedin(true);
     } catch (error) {

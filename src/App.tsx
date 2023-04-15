@@ -20,7 +20,7 @@ export function App() {
   return (
     <ApolloProvider
       client={createApolloClient(
-        appContext.state.sessionInfo?._id ||
+        appContext.state.sessionInfo?.token ||
           (process.env.REACT_APP_SESSION_ID as string)
       )}
     >
